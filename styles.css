@@ -675,7 +675,8 @@ a { color: inherit; text-decoration: none; }
   transition: padding .3s;
 }
 .news-item:first-child { border-top: 1px solid var(--line-strong); }
-.news-item:hover { padding-left: 10px; }
+.news-item:not(.news-item-static):hover { padding-left: 10px; }
+.news-item-static { cursor: default; }
 .news-item .date {
   font-family: "JetBrains Mono", monospace;
   font-size: 12px;

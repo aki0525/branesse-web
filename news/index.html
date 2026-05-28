@@ -42,18 +42,15 @@
 
 <script type="text/babel">
 const ALL_NEWS = [
+  { date: "2026.05.23", tag: "COMPANY",  title: "Branesseのコーポレートサイトをリニューアルしました。" },
   { date: "2026.05.12", tag: "PROJECT",  title: "新規IPプロジェクトのクリエイティブプロデュースを開始しました。" },
-  { date: "2026.04.20", tag: "LIVE",     title: "アーティストライブのティザー映像制作を担当しました。" },
-  { date: "2026.04.05", tag: "BEYOND",   title: "親子向けメディアプロジェクトの企画開発を開始しました。" },
-  { date: "2026.03.08", tag: "COMPANY",  title: "Branesseのコーポレートサイトをリニューアルしました。" },
-  { date: "2026.02.14", tag: "SNS",      title: "ブランド公式SNS運用の体制を拡張しました。" },
+  { date: "2026.05.05", tag: "LIVE",     title: "アーティストライブのティザー映像制作を担当しました。" },
   { date: "2025.12.20", tag: "PROJECT",  title: "キャラクターSNSプロジェクトの新シリーズを企画開始しました。" },
   { date: "2025.10.15", tag: "LIVE",     title: "ライブ・イベント領域のクリエイティブ支援案件を開始しました。" },
-  { date: "2025.08.01", tag: "COMPANY",  title: "東京都新宿区に拠点を構えました。" },
   { date: "2025.05.23", tag: "COMPANY",  title: "合同会社ブラネス(Branesse LLC)を設立しました。" },
 ];
 
-const TAGS = ["ALL", "PROJECT", "LIVE", "SNS", "BEYOND", "COMPANY"];
+const TAGS = ["ALL", "PROJECT", "LIVE", "COMPANY"];
 
 function NewsPage() {
   const [tag, setTag] = React.useState("ALL");
@@ -68,8 +65,8 @@ function NewsPage() {
           jp={<>お知らせ<em>.</em></>}
           sub="Branesseのプロジェクト、会社情報、メディア掲載などの最新情報をお届けします。"
           breadcrumbs={[
-            { label: "TOP", href: "/" },
-            { label: "NEWS", href: "/news/" },
+            { label: "TOP", href: "../Branesse Top.html" },
+            { label: "NEWS", href: "news.html" },
           ]}
         />
 
@@ -83,12 +80,11 @@ function NewsPage() {
 
             <div className="news-page-list">
               {items.map((n, i) => (
-                <a href="#" className="news-page-item" key={i}>
+                <div className="news-page-item news-item-static" key={i}>
                   <span className="date mono" style={{fontSize:12, letterSpacing:".1em", fontVariantNumeric:"tabular-nums"}}>{n.date}</span>
                   <span className="tag mono" style={{fontSize:10, letterSpacing:".18em", color:"var(--red)", padding:"4px 8px", border:"1px solid currentColor", justifySelf:"start"}}>{n.tag}</span>
                   <span style={{fontFamily:'"Zen Kaku Gothic New"', fontWeight:500, fontSize:16, lineHeight:1.5}}>{n.title}</span>
-                  <span className="mono" style={{fontSize:14, color:"var(--muted)"}}>→</span>
-                </a>
+                </div>
               ))}
             </div>
 

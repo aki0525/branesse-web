@@ -424,7 +424,7 @@ function Footer() {
         <div className="foot-inner">
           <div className="foot-top">
             <div>
-              <div className="foot-mark"><img src="/assets/logo-horizontal.png" alt="Branesse" /></div>
+              <div className="foot-mark"><img src="assets/logo-horizontal.png" alt="Branesse" /></div>
               <div className="foot-tagline">
                 コンテンツで、ブランドとファンを動かす。<br/>
                 エンタメ・IP・SNS・ライブ領域のクリエイティブプロデュース。
@@ -444,10 +444,10 @@ function Footer() {
             <div className="foot-col">
               <h4>FIELD</h4>
               <ul>
-                <li>SNS / Marketing</li>
-                <li>IP / Entertainment</li>
-                <li>Live / Movie</li>
-                <li>Web / AI</li>
+                <li><a href="/#capabilities">SNS / Marketing</a></li>
+                <li><a href="/#capabilities">IP / Entertainment</a></li>
+                <li><a href="/#capabilities">Live / Movie</a></li>
+                <li><a href="/#capabilities">Web / AI</a></li>
               </ul>
             </div>
             <div className="foot-col">
@@ -522,10 +522,10 @@ function Values() {
 
 /* ---------------- News ---------------- */
 const NEWS = [
+  { date: "2026.05.23", tag: "COMPANY",  title: "Branesseのコーポレートサイトをリニューアルしました。" },
   { date: "2026.05.12", tag: "PROJECT",  title: "新規IPプロジェクトのクリエイティブプロデュースを開始しました。" },
-  { date: "2026.04.20", tag: "LIVE",     title: "アーティストライブのティザー映像制作を担当しました。" },
-  { date: "2026.03.08", tag: "COMPANY",  title: "Branesseのコーポレートサイトをリニューアルしました。" },
-  { date: "2026.02.14", tag: "SNS",      title: "ブランド公式SNS運用の体制を拡張しました。" },
+  { date: "2026.05.05", tag: "LIVE",     title: "アーティストライブのティザー映像制作を担当しました。" },
+  { date: "2025.12.20", tag: "PROJECT",  title: "キャラクターSNSプロジェクトの新シリーズを企画開始しました。" },
 ];
 
 function News() {
@@ -536,17 +536,16 @@ function News() {
           <div className="news-head">
             <div className="label" style={{marginBottom:18}}>NEWS · お知らせ</div>
             <h2>お知らせ.</h2>
-            <a href="#" className="more">VIEW ALL NEWS →</a>
+            <a href="/news/" className="more">VIEW ALL NEWS →</a>
             <div className="mono" style={{marginTop:24, fontSize:11, letterSpacing:".14em", color:"var(--muted)"}}>UPDATES / 2026</div>
           </div>
           <div className="news-list">
             {NEWS.map((n, i) => (
-              <a href="#" key={i} className="news-item">
+              <div key={i} className="news-item news-item-static">
                 <span className="date">{n.date}</span>
                 <span className="tag">{n.tag}</span>
                 <span className="title">{n.title}</span>
-                <span className="arrow">→</span>
-              </a>
+              </div>
             ))}
           </div>
         </div>
