@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(11,11,12,.08)" stroke-width="1"></path>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#F4F1EA"></rect>
+  <rect width="1200" height="630" fill="url(#grid)"></rect>
+
+  
+  <text x="64" y="98" font-family="JetBrains Mono, monospace" font-size="16" font-weight="500" letter-spacing="3.2" fill="#7A736B">[ BRANESSE / CREATIVE PRODUCE ]</text>
+  <line x1="64" y1="118" x2="240" y2="118" stroke="#E50914" stroke-width="2"></line>
+
+  
+  <text x="64" y="270" font-family="Zen Kaku Gothic New, sans-serif" font-size="92" font-weight="700" letter-spacing="-3" fill="#0B0B0C">コンテンツで、</text>
+  <text x="64" y="382" font-family="Zen Kaku Gothic New, sans-serif" font-size="92" font-weight="700" letter-spacing="-3" fill="#0B0B0C">ブランドと</text>
+  <text x="64" y="494" font-family="Zen Kaku Gothic New, sans-serif" font-size="92" font-weight="700" letter-spacing="-3"><tspan fill="#E50914">ファン</tspan><tspan fill="#0B0B0C">を動かす</tspan><tspan fill="#E50914">.</tspan></text>
+
+  
+  <line x1="64" y1="540" x2="1136" y2="540" stroke="#0B0B0C" stroke-opacity=".15" stroke-width="1"></line>
+  <text x="64" y="580" font-family="Inter, sans-serif" font-size="20" font-weight="600" letter-spacing="-0.4" fill="#0B0B0C">Branesse</text>
+  <text x="64" y="606" font-family="JetBrains Mono, monospace" font-size="14" letter-spacing="2.4" fill="#7A736B">SNS · IP · LIVE · MOVIE · WEB · AI</text>
+  <text x="1136" y="606" font-family="JetBrains Mono, monospace" font-size="14" letter-spacing="2.4" fill="#7A736B" text-anchor="end">2025.05.23 — TOKYO</text>
+
+  
+  <path d="M 44 44 L 44 76 M 44 44 L 76 44" stroke="#0B0B0C" stroke-width="1.5" fill="none"></path>
+  <path d="M 1156 44 L 1156 76 M 1156 44 L 1124 44" stroke="#0B0B0C" stroke-width="1.5" fill="none"></path>
+  <path d="M 44 586 L 44 554 M 44 586 L 76 586" stroke="#0B0B0C" stroke-width="1.5" fill="none"></path>
+  <path d="M 1156 586 L 1156 554 M 1156 586 L 1124 586" stroke="#0B0B0C" stroke-width="1.5" fill="none"></path>
+
+  
+  <rect x="1080" y="270" width="60" height="60" fill="#E50914"></rect>
+</svg>

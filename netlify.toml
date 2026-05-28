@@ -1,0 +1,28 @@
+# === Branesse — Netlify build config ===
+
+[build]
+  publish = "."
+  command = ""
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Default headers for all responses (in addition to _headers file)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Form spam protection — honeypot + Akismet
+[forms]
+  spam_protection = true
+
+# Production context
+[context.production.environment]
+  SITE_URL = "https://www.branesse.com"
+
+# Branch deploy previews
+[context.deploy-preview]
+  command = ""

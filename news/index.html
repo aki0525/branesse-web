@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NEWS — Branesse</title>
+<meta name="description" content="Branesseのお知らせ・最新情報。" />
+<meta property="og:title" content="NEWS — Branesse" />
+<meta property="og:description" content="Branesseのお知らせ・最新情報。" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/assets/ogp-default.png" />
+<meta name="twitter:image" content="/assets/ogp-default.png" />
+<meta property="og:site_name" content="Branesse" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="NEWS — Branesse" />
+<meta name="twitter:description" content="Branesseのお知らせ・最新情報。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/styles-creative.css" />
+<link rel="stylesheet" href="/styles-company.css" />
+<link rel="stylesheet" href="/styles-works.css" />
+<link rel="stylesheet" href="/styles-works2.css" />
+<link rel="stylesheet" href="/styles-subpages.css" />
+<link rel="stylesheet" href="/styles-mobile.css" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#15356F" />
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="/components/creative.jsx"></script>
+<script type="text/babel" src="/components/subpage-shell.jsx"></script>
+
+<script type="text/babel">
+const ALL_NEWS = [
+  { date: "2026.05.12", tag: "PROJECT",  title: "新規IPプロジェクトのクリエイティブプロデュースを開始しました。" },
+  { date: "2026.04.20", tag: "LIVE",     title: "アーティストライブのティザー映像制作を担当しました。" },
+  { date: "2026.04.05", tag: "BEYOND",   title: "親子向けメディアプロジェクトの企画開発を開始しました。" },
+  { date: "2026.03.08", tag: "COMPANY",  title: "Branesseのコーポレートサイトをリニューアルしました。" },
+  { date: "2026.02.14", tag: "SNS",      title: "ブランド公式SNS運用の体制を拡張しました。" },
+  { date: "2025.12.20", tag: "PROJECT",  title: "キャラクターSNSプロジェクトの新シリーズを企画開始しました。" },
+  { date: "2025.10.15", tag: "LIVE",     title: "ライブ・イベント領域のクリエイティブ支援案件を開始しました。" },
+  { date: "2025.08.01", tag: "COMPANY",  title: "東京都新宿区に拠点を構えました。" },
+  { date: "2025.05.23", tag: "COMPANY",  title: "合同会社ブラネス(Branesse LLC)を設立しました。" },
+];
+
+const TAGS = ["ALL", "PROJECT", "LIVE", "SNS", "BEYOND", "COMPANY"];
+
+function NewsPage() {
+  const [tag, setTag] = React.useState("ALL");
+  const items = tag === "ALL" ? ALL_NEWS : ALL_NEWS.filter(n => n.tag === tag);
+  return (
+    <React.Fragment>
+      <SubHeader active="NEWS" />
+      <main>
+        <PageHero
+          num="NEWS"
+          en="Updates / Press"
+          jp={<>お知らせ<em>.</em></>}
+          sub="Branesseのプロジェクト、会社情報、メディア掲載などの最新情報をお届けします。"
+          breadcrumbs={[
+            { label: "TOP", href: "/" },
+            { label: "NEWS", href: "/news/" },
+          ]}
+        />
+
+        <section className="page-section">
+          <div className="container">
+            <div className="works-filter">
+              {TAGS.map(t => (
+                <button key={t} className={tag === t ? "active" : ""} onClick={() => setTag(t)}>{t}</button>
+              ))}
+            </div>
+
+            <div className="news-page-list">
+              {items.map((n, i) => (
+                <a href="#" className="news-page-item" key={i}>
+                  <span className="date mono" style={{fontSize:12, letterSpacing:".1em", fontVariantNumeric:"tabular-nums"}}>{n.date}</span>
+                  <span className="tag mono" style={{fontSize:10, letterSpacing:".18em", color:"var(--red)", padding:"4px 8px", border:"1px solid currentColor", justifySelf:"start"}}>{n.tag}</span>
+                  <span style={{fontFamily:'"Zen Kaku Gothic New"', fontWeight:500, fontSize:16, lineHeight:1.5}}>{n.title}</span>
+                  <span className="mono" style={{fontSize:14, color:"var(--muted)"}}>→</span>
+                </a>
+              ))}
+            </div>
+
+            <div style={{marginTop:48, display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+              <span className="mono" style={{fontSize:11, letterSpacing:".14em", color:"var(--muted)"}}>{items.length} / {ALL_NEWS.length} ARTICLES</span>
+              <span className="mono" style={{fontSize:11, letterSpacing:".14em", color:"var(--muted)"}}>UPDATED MONTHLY</span>
+            </div>
+          </div>
+        </section>
+
+        <SubFooter />
+      </main>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<NewsPage />);
+</script>
+</body>
+</html>

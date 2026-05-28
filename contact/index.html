@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CONTACT — Branesse</title>
+<meta name="description" content="Branesseへのご相談・お問い合わせ。エンタメ・IP・SNS・ライブ・映像・Web・AI領域でのプロジェクトについて。" />
+<meta property="og:title" content="CONTACT — Branesse" />
+<meta property="og:description" content="Branesseへのご相談・お問い合わせ。" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/assets/ogp-default.png" />
+<meta name="twitter:image" content="/assets/ogp-default.png" />
+<meta property="og:site_name" content="Branesse" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CONTACT — Branesse" />
+<meta name="twitter:description" content="Branesseへのご相談・お問い合わせ。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/styles-creative.css" />
+<link rel="stylesheet" href="/styles-company.css" />
+<link rel="stylesheet" href="/styles-works.css" />
+<link rel="stylesheet" href="/styles-works2.css" />
+<link rel="stylesheet" href="/styles-subpages.css" />
+<link rel="stylesheet" href="/styles-mobile.css" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#15356F" />
+</head>
+<body>
+<div id="root"></div>
+
+<!-- Netlify Form Detection (hidden, build-time only) -->
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field" />
+  <input type="text" name="your-name" />
+  <input type="text" name="your-company" />
+  <input type="email" name="your-email" />
+  <input type="tel" name="your-phone" />
+  <select name="your-field"><option></option></select>
+  <select name="your-budget"><option></option></select>
+  <textarea name="your-message"></textarea>
+</form>
+
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="/components/creative.jsx"></script>
+<script type="text/babel" src="/components/subpage-shell.jsx"></script>
+
+<script type="text/babel">
+function ContactPage() {
+  const [submitted, setSubmitted] = React.useState(false);
+  const encode = (data) => Object.keys(data).map(k => encodeURIComponent(k) + "=" + encodeURIComponent(data[k])).join("&");
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const fd = new FormData(form);
+    const data = {};
+    fd.forEach((v, k) => { data[k] = v; });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode(data),
+    })
+      .then(() => setSubmitted(true))
+      .catch((err) => { console.error(err); alert("送信に失敗しました。しばらくしてから再度お試しください。"); });
+  };
+  return (
+    <React.Fragment>
+      <SubHeader active="CONTACT" />
+      <main>
+        <PageHero
+          num="CONTACT"
+          en="Get in Touch"
+          jp={<>ご相談は<br/>こちらから<em>.</em></>}
+          sub="エンタメ・IP・SNS・ライブ・映像・Web・AI領域でのプロジェクト、企画相談、業務提携、メディア取材まで、お気軽にお問い合わせください。"
+          breadcrumbs={[
+            { label: "TOP", href: "/" },
+            { label: "CONTACT", href: "/contact/" },
+          ]}
+        />
+
+        <section className="page-section">
+          <div className="container">
+            <div className="contact-grid">
+
+              <div className="contact-info">
+                <div className="block">
+                  <span className="k">EMAIL</span>
+                  <span className="v"><a href="mailto:info@branesse.com">info@branesse.com</a></span>
+                </div>
+                <div className="block">
+                  <span className="k">RESPONSE</span>
+                  <span className="v">2〜3営業日以内に<br/>担当よりご返信いたします。</span>
+                </div>
+                <div className="block">
+                  <span className="k">OFFICE</span>
+                  <span className="v">合同会社ブラネス<br/>東京都新宿区<br/><span className="mono" style={{fontSize:11,color:"var(--muted)"}}>Mon — Fri / 10:00 — 19:00 JST</span></span>
+                </div>
+                <div className="block">
+                  <span className="k">FIELDS</span>
+                  <span className="v">企画・制作・運用のご相談、業務提携、取材、採用、その他</span>
+                </div>
+              </div>
+
+              {!submitted ? (
+                <form className="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={onSubmit}>
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p hidden><label>Don't fill this: <input name="bot-field" /></label></p>
+                  <div className="field-row">
+                    <div className="field">
+                      <label>お名前 <span className="req">*</span></label>
+                      <input type="text" name="name" required placeholder="山田 太郎" />
+                    </div>
+                    <div className="field">
+                      <label>会社名・組織名</label>
+                      <input type="text" name="company" placeholder="株式会社〇〇" />
+                    </div>
+                  </div>
+
+                  <div className="field-row">
+                    <div className="field">
+                      <label>メールアドレス <span className="req">*</span></label>
+                      <input type="email" name="email" required placeholder="example@email.com" />
+                    </div>
+                    <div className="field">
+                      <label>電話番号</label>
+                      <input type="tel" name="phone" placeholder="03-0000-0000" />
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <label>ご相談領域 <span className="req">*</span></label>
+                    <select name="field" required defaultValue="">
+                      <option value="" disabled>選択してください</option>
+                      <option>SNS Marketing</option>
+                      <option>IP / Entertainment</option>
+                      <option>Live / Movie</option>
+                      <option>YouTube / Community</option>
+                      <option>Web / Design</option>
+                      <option>AI / Tech</option>
+                      <option>Beyond Entertainment(子育て・教育・地域)</option>
+                      <option>業務提携 / Partnership</option>
+                      <option>メディア取材</option>
+                      <option>その他</option>
+                    </select>
+                  </div>
+
+                  <div className="field">
+                    <label>ご予算感(目安)</label>
+                    <select name="budget" defaultValue="">
+                      <option value="" disabled>未定 / 選択してください</option>
+                      <option>〜50万円</option>
+                      <option>50〜100万円</option>
+                      <option>100〜300万円</option>
+                      <option>300〜500万円</option>
+                      <option>500万円以上</option>
+                      <option>未定・要相談</option>
+                    </select>
+                  </div>
+
+                  <div className="field">
+                    <label>ご相談内容 <span className="req">*</span></label>
+                    <textarea name="message" required placeholder="プロジェクトの背景、目的、期待する成果などを簡単にお書きください。"></textarea>
+                  </div>
+
+                  <div className="submit-row">
+                    <p className="priv-note">
+                      ご入力いただいた情報は<a href="/privacy-policy/">プライバシーポリシー</a>に基づき適切に管理し、お問い合わせへの対応以外には使用しません。
+                    </p>
+                    <button type="submit">送信する <span style={{fontFamily:'JetBrains Mono'}}>→</span></button>
+                  </div>
+                </form>
+              ) : (
+                <div style={{display:"grid", placeItems:"center", border:"1px solid var(--line-strong)", padding:"96px 32px", background:"var(--off)"}}>
+                  <div style={{textAlign:"center", display:"grid", gap:18}}>
+                    <div className="mono" style={{fontSize:12, letterSpacing:".2em", color:"var(--red)"}}>● MESSAGE RECEIVED</div>
+                    <h3 style={{fontFamily:'"Zen Kaku Gothic New"', fontWeight:700, fontSize:32, letterSpacing:'-0.02em', margin:0}}>送信ありがとうございました。</h3>
+                    <p style={{maxWidth:'40ch', lineHeight:1.9, color:'#2a2520', margin:0}}>2〜3営業日以内に担当よりご返信いたします。<br/>しばらくお待ちください。</p>
+                    <a href="/" className="btn-ghost" style={{marginTop:24}}>TOPへ戻る <span className="arrow"></span></a>
+                  </div>
+                </div>
+              )}
+
+            </div>
+          </div>
+        </section>
+
+        <SubFooter />
+      </main>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<ContactPage />);
+</script>
+</body>
+</html>

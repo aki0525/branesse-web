@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WORKS — Branesse</title>
+<meta name="description" content="エンタメ・IP・SNS・ライブ・映像・Web領域における、Branesseのプロジェクト一覧。" />
+<meta property="og:title" content="WORKS — Branesse" />
+<meta property="og:description" content="動いているプロジェクト。エンタメ・IP・SNS・ライブ・映像・Web領域における、Branesseのプロジェクト一覧。" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/assets/ogp-default.png" />
+<meta name="twitter:image" content="/assets/ogp-default.png" />
+<meta property="og:site_name" content="Branesse" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="WORKS — Branesse" />
+<meta name="twitter:description" content="動いているプロジェクト。エンタメ・IP・SNS・ライブ・映像・Web領域における、Branesseのプロジェクト一覧。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/styles-creative.css" />
+<link rel="stylesheet" href="/styles-company.css" />
+<link rel="stylesheet" href="/styles-works.css" />
+<link rel="stylesheet" href="/styles-works2.css" />
+<link rel="stylesheet" href="/styles-subpages.css" />
+<link rel="stylesheet" href="/styles-mobile.css" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#15356F" />
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="/components/creative.jsx"></script>
+<script type="text/babel" src="/components/subpage-shell.jsx"></script>
+
+<script type="text/babel">
+const ALL_WORKS = [
+  { slug:"01", status:"active",    cat:"SNS / IP / YouTube / Community",        title:"公式IPチャンネル企画支援",         en:"OFFICIAL IP CHANNEL",  period:"2025 — 進行中",  viz:"channel"   },
+  { slug:"02", status:"ongoing",   cat:"IP / Entertainment / Creative",         title:"大型IPコンテンツ制作支援",         en:"MAJOR IP PRODUCTION",  period:"2025 — 継続中",  viz:"majorip"   },
+  { slug:"03", status:"completed", cat:"Live / Creative / Movie / Production",  title:"ライブ制作 / クリエイティブ制作",  en:"LIVE PRODUCTION",      period:"2025 完了",      viz:"live"      },
+  { slug:"04", status:"active",    cat:"Character / Content / SNS / IP",        title:"キャラクターSNSプロジェクト",      en:"CHARACTER SNS",        period:"2025 — 進行中",  viz:"character" },
+  { slug:"05", status:"ongoing",   cat:"SNS / Brand / EC / Web",                title:"ブランドSNSコンテンツ制作",        en:"BRAND SNS",            period:"2025 — 継続中",  viz:"brand"     },
+  { slug:"06", status:"active",    cat:"Parenting / Media / Content",           title:"親子向けメディア / コンテンツ開発", en:"PARENTING MEDIA",      period:"2025 — 進行中",  viz:"parenting" },
+  { slug:"07", status:"ongoing",   cat:"YouTube / Kids / Live",                  title:"キッズ向けYouTubeコンテンツ企画支援", en:"KIDS YOUTUBE",         period:"2025 — 継続中",  viz:"kids"      },
+  { slug:"08", status:"completed", cat:"EC / Shopify / UI / Contents",          title:"EC / Shopifyサイト改善支援",        en:"EC IMPROVEMENT",       period:"2025 完了",      viz:"ec"        },
+  { slug:"09", status:"ongoing",   cat:"Sports / Web / SNS / Branding",          title:"地域スポーツクラブ Web / SNS支援",  en:"LOCAL SPORTS",         period:"2025 — 継続中",  viz:"sports"    },
+  { slug:"10", status:"completed", cat:"Live Streaming / Webinar",               title:"ライブ配信・ウェビナー運用支援",    en:"LIVE STREAMING OPS",   period:"2025 完了",      viz:"stream"    },
+];
+
+const STATUS_META = {
+  active:    { label:"ACTIVE",    jp:"進行中",   color:"#E50914" },
+  ongoing:   { label:"ONGOING",   jp:"継続支援", color:"#0B0B0C" },
+  completed: { label:"COMPLETED", jp:"完了",     color:"#7A736B" },
+};
+
+const STATUS_FILTERS = [
+  { id: "all",       label: "ALL" },
+  { id: "active",    label: "● ACTIVE / 進行中" },
+  { id: "ongoing",   label: "◇ ONGOING / 継続" },
+  { id: "completed", label: "○ COMPLETED / 完了" },
+];
+
+const CAT_FILTERS = [
+  { id: "all",     label: "ALL" },
+  { id: "ip",      label: "IP / ENTERTAINMENT", match: /IP|Entertainment/i },
+  { id: "live",    label: "LIVE / MOVIE",       match: /Live|Movie|Streaming/i },
+  { id: "sns",     label: "SNS / CHARACTER",    match: /SNS|Character/i },
+  { id: "brand",   label: "BRAND / EC",         match: /Brand|EC|Shopify/i },
+  { id: "social",  label: "BEYOND / SOCIAL",    match: /Parenting|Kids|Sports/i },
+];
+
+function MiniViz({ kind }) {
+  // small abstract row-thumbnail (54×54)
+  const common = { width: 54, height: 54, position: "relative", overflow: "hidden", flex: "0 0 54px" };
+  if (kind === "channel") return (
+    <div style={{...common, background:"#0B0B0C"}}>
+      <div style={{position:"absolute", left:"50%", top:"50%", width:14, height:14, transform:"translate(-50%,-50%)", background:"#fff", clipPath:"polygon(28% 18%, 28% 82%, 80% 50%)"}}></div>
+      <div style={{position:"absolute", left:6, right:6, bottom:6, height:2, background:"rgba(255,255,255,.18)"}}>
+        <div style={{position:"absolute", inset:"0 60% 0 0", background:"#E50914"}}></div>
+      </div>
+    </div>
+  );
+  if (kind === "majorip") return (
+    <div style={{...common, background:"linear-gradient(135deg,#0d0d10,#1c1c20)"}}>
+      <div style={{position:"absolute", left:10, top:10, right:10, bottom:10, border:"1px solid rgba(255,255,255,.4)"}}></div>
+      <div style={{position:"absolute", left:14, top:14, right:14, bottom:14, border:"1px solid #E50914", opacity:.6}}></div>
+    </div>
+  );
+  if (kind === "live") return (
+    <div style={{...common, background:"radial-gradient(ellipse at 50% 100%, rgba(229,9,20,.55), transparent 60%), #0a0a0c"}}>
+      <div style={{position:"absolute", left:8, top:6, bottom:18, width:2, background:"linear-gradient(to bottom, transparent, rgba(229,9,20,.8), transparent)"}}></div>
+      <div style={{position:"absolute", right:8, top:6, bottom:18, width:2, background:"linear-gradient(to bottom, transparent, rgba(255,255,255,.6), transparent)"}}></div>
+      <div style={{position:"absolute", left:0, right:0, bottom:0, height:14, background:"#000", borderTop:"1px solid #E50914"}}></div>
+    </div>
+  );
+  if (kind === "character") return (
+    <div style={{...common, background:"#F0E9DC"}}>
+      <div style={{position:"absolute", left:"50%", top:"50%", width:26, height:26, transform:"translate(-50%,-50%)", background:"#0B0B0C", borderRadius:"50%"}}></div>
+      <div style={{position:"absolute", left:"50%", top:"50%", width:8, height:8, transform:"translate(-50%,-50%)", background:"#E50914", borderRadius:"50%"}}></div>
+    </div>
+  );
+  if (kind === "brand") return (
+    <div style={{...common, background:"#fff", display:"grid", gridTemplateColumns:"1fr 1fr", gridTemplateRows:"1fr 1fr", gap:1}}>
+      <div style={{background:"linear-gradient(135deg,#F0E6D2,#D4BE9C)"}}></div>
+      <div style={{background:"#0B0B0C"}}></div>
+      <div style={{background:"#E50914"}}></div>
+      <div style={{background:"#F4EFE0"}}></div>
+    </div>
+  );
+  if (kind === "parenting") return (
+    <div style={{...common, background:"linear-gradient(180deg,#FAF8F2,#ECE7DC)"}}>
+      <div style={{position:"absolute", left:8, top:8, right:8, height:2, background:"#E50914", opacity:.6}}></div>
+      <div style={{position:"absolute", left:8, top:18, right:18, height:1, background:"#0B0B0C", opacity:.3}}></div>
+      <div style={{position:"absolute", left:8, top:24, right:14, height:1, background:"#0B0B0C", opacity:.3}}></div>
+      <div style={{position:"absolute", left:8, top:30, right:22, height:1, background:"#0B0B0C", opacity:.3}}></div>
+      <div style={{position:"absolute", right:6, bottom:6, width:14, height:14, background:"#E50914", borderRadius:"50%"}}></div>
+    </div>
+  );
+  if (kind === "kids") return (
+    <div style={{...common, background:"#FAF8F2"}}>
+      <div style={{position:"absolute", left:6, top:6, right:6, bottom:18, background:"#0B0B0C"}}>
+        <div style={{position:"absolute", left:"50%", top:"50%", width:10, height:10, transform:"translate(-50%,-50%)", background:"#E50914", clipPath:"polygon(28% 18%, 28% 82%, 80% 50%)"}}></div>
+      </div>
+      <div style={{position:"absolute", left:6, bottom:6, right:6, fontFamily:'"Inter"', fontSize:7, letterSpacing:".1em", color:"#7A736B"}}>KIDS</div>
+    </div>
+  );
+  if (kind === "ec") return (
+    <div style={{...common, background:"#fff", border:"1px solid var(--line)"}}>
+      <div style={{position:"absolute", left:6, top:6, right:6, height:18, background:"linear-gradient(135deg,#F0E6D2,#D4BE9C)"}}></div>
+      <div style={{position:"absolute", left:6, top:30, width:24, height:2, background:"#0B0B0C"}}></div>
+      <div style={{position:"absolute", left:6, top:36, width:16, height:1, background:"#7A736B"}}></div>
+      <div style={{position:"absolute", right:6, bottom:6, fontFamily:'"Inter"', fontSize:8, fontWeight:700, color:"#E50914"}}>¥</div>
+    </div>
+  );
+  if (kind === "sports") return (
+    <div style={{...common, background:"#0B0B0C"}}>
+      <div style={{position:"absolute", inset:8, border:"1px solid rgba(255,255,255,.3)"}}></div>
+      <div style={{position:"absolute", left:"50%", top:8, bottom:8, width:1, background:"rgba(255,255,255,.3)"}}></div>
+      <div style={{position:"absolute", left:"50%", top:"50%", width:10, height:10, transform:"translate(-50%,-50%)", borderRadius:"50%", border:"1px solid rgba(255,255,255,.5)"}}></div>
+      <div style={{position:"absolute", left:6, top:4, fontFamily:'"Inter"', fontSize:7, color:"#E50914"}}>●</div>
+    </div>
+  );
+  if (kind === "stream") return (
+    <div style={{...common, background:"#0a0a0c"}}>
+      <div style={{position:"absolute", left:6, top:8, fontFamily:'"JetBrains Mono"', fontSize:7, letterSpacing:".1em", color:"#E50914"}}>● LIVE</div>
+      <div style={{position:"absolute", left:6, right:6, bottom:8, display:"flex", alignItems:"flex-end", gap:1, height:18}}>
+        {[3,5,9,4,12,7,11,5,8,4,10,6,3].map((h,i)=>(
+          <div key={i} style={{flex:1, height:h+'px', background: i%2 ? '#E50914' : 'rgba(255,255,255,.8)'}}></div>
+        ))}
+      </div>
+    </div>
+  );
+  return <div style={common}></div>;
+}
+
+function WorksPage() {
+  const [statusF, setStatusF] = React.useState("all");
+  const [catF, setCatF] = React.useState("all");
+  let items = ALL_WORKS;
+  if (statusF !== "all") items = items.filter(w => w.status === statusF);
+  if (catF !== "all") {
+    const cf = CAT_FILTERS.find(f => f.id === catF);
+    if (cf && cf.match) items = items.filter(w => cf.match.test(w.cat));
+  }
+
+  return (
+    <React.Fragment>
+      <SubHeader active="WORKS" />
+      <main>
+        <PageHero
+          num="WORKS / 01"
+          en="Selected Projects"
+          jp={<>動いている<em>プロジェクト</em>。</>}
+          sub="エンタメ・IP・SNS・ライブ・映像・Web領域を中心に、企画、制作、運用、改善まで横断したクリエイティブ支援を行っています。"
+          breadcrumbs={[
+            { label: "TOP", href: "/" },
+            { label: "WORKS", href: "/works/" },
+          ]}
+        />
+
+        <section className="page-section">
+          <div className="container">
+
+            <div className="works-filter-group">
+              <div className="works-filter-label mono">STATUS</div>
+              <div className="works-filter">
+                {STATUS_FILTERS.map(f => (
+                  <button key={f.id} className={statusF === f.id ? "active" : ""} onClick={() => setStatusF(f.id)}>
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="works-filter-group">
+              <div className="works-filter-label mono">CATEGORY</div>
+              <div className="works-filter">
+                {CAT_FILTERS.map(f => (
+                  <button key={f.id} className={catF === f.id ? "active" : ""} onClick={() => setCatF(f.id)}>
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="works-counter mono">
+              <span>{items.length} / {ALL_WORKS.length} PROJECTS</span>
+              <span>※ DETAIL AVAILABLE · 01 — 03</span>
+            </div>
+
+            <div className="works-list">
+              {items.map((w) => {
+                const hasDetail = parseInt(w.slug, 10) <= 3;
+                const cls = "works-row" + (hasDetail ? "" : " disabled");
+                const sm = STATUS_META[w.status];
+                return (
+                  <a href={hasDetail ? `works-${w.slug}.html` : "#"} className={cls} key={w.slug}>
+                    <span className="w-status">
+                      <span className="w-status-dot" style={{background: sm.color}}></span>
+                      <span className="w-status-label">{sm.label}</span>
+                    </span>
+                    <MiniViz kind={w.viz} />
+                    <span className="w-title-block">
+                      <span className="w-title">{w.title}</span>
+                      <span className="w-cat mono">{w.cat}</span>
+                    </span>
+                    <span className="w-meta mono">{w.period}</span>
+                    <span className="w-arrow">{hasDetail ? "→" : "—"}</span>
+                  </a>
+                );
+              })}
+              {items.length === 0 && (
+                <div style={{padding:"64px 0", textAlign:"center", color:"var(--muted)"}}>
+                  該当するプロジェクトはありません。
+                </div>
+              )}
+            </div>
+
+            <div className="proj-note" style={{marginTop:48}}>
+              <span className="proj-note-mark">※</span>
+              <span>一部プロジェクトは守秘義務・掲載許諾の関係上、企業名・ロゴ・詳細情報を伏せ、業種・支援内容のみ掲載しています。掲載許諾をいただいた企業・プロジェクトについては、別途 Clients / Partners として掲載する場合があります。詳細ページは順次公開中(現在 01〜03)。</span>
+            </div>
+          </div>
+        </section>
+
+        <SubFooter />
+      </main>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<WorksPage />);
+</script>
+</body>
+</html>

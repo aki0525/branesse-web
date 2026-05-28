@@ -1,0 +1,504 @@
+/* =================================================================
+   Sub-page styles — shared by all non-top pages
+   ================================================================= */
+
+.subpage-header { mix-blend-mode: normal; color: var(--ink); background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.subpage-header .brand { color: var(--navy); font-weight: 700; }
+.subpage-header .brand .dot { background: var(--gold); }
+.subpage-header nav a { color: var(--navy); }
+.subpage-header nav a.active { color: var(--gold); }
+.subpage-header .corner { color: var(--muted); }
+
+/* page hero */
+.page-hero {
+  padding: 180px 0 96px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-inner { position: relative; z-index: 1; }
+.page-crumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-bottom: 64px;
+}
+.page-crumb a { color: var(--muted); }
+.page-crumb a:hover { color: var(--red); }
+.page-crumb a:last-of-type { color: var(--ink); }
+.page-crumb-sep { opacity: .4; }
+
+.page-num {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+.page-en {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 1.6vw, 22px);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.page-jp {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: clamp(48px, 6.2vw, 96px);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  margin: 0 0 28px;
+  word-break: keep-all;
+}
+.page-jp em { font-style: normal; color: var(--red); }
+.page-sub {
+  font-size: 15px;
+  line-height: 2.0;
+  color: #2a2520;
+  max-width: 56ch;
+  margin: 0;
+}
+
+/* common content section */
+.page-section { padding: 96px 0; position: relative; }
+.page-section + .page-section { border-top: 1px solid var(--line); }
+.page-section h3.sec-h {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 44px);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 32px;
+}
+.page-section .sec-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+
+/* ===== Works一覧 ===== */
+.works-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--line-strong);
+}
+.works-row {
+  display: grid;
+  grid-template-columns: 130px 54px 1fr 160px 32px;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding .3s, background .3s;
+}
+.works-row:hover { padding-left: 16px; background: rgba(255,255,255,.4); }
+.works-row .w-status { display: inline-flex; align-items: center; gap: 10px; }
+.works-row .w-status-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.works-row .w-status-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+  font-weight: 500;
+}
+.works-row .w-title-block { display: grid; gap: 6px; }
+.works-row .w-title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.works-row .w-cat {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.works-row .w-meta {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-align: right;
+}
+.works-row .w-arrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  color: var(--muted);
+  transition: color .3s, transform .3s;
+}
+.works-row:hover .w-arrow { color: var(--red); transform: translateX(6px); }
+.works-row.disabled { opacity: .55; cursor: not-allowed; pointer-events: none; }
+.works-row.disabled .w-arrow { transform: none; }
+
+.works-filter-group {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+.works-filter-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  font-weight: 500;
+}
+.works-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0;
+}
+.works-counter {
+  margin: 24px 0 32px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.works-filter button {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all .2s;
+}
+.works-filter button.active, .works-filter button:hover {
+  background: var(--ink);
+  color: var(--off);
+  border-color: var(--ink);
+}
+
+/* ===== Works detail ===== */
+.work-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  margin-top: 64px;
+}
+.work-spec {
+  display: grid; gap: 28px;
+  align-self: start;
+  position: sticky;
+  top: 100px;
+}
+.work-spec .row {
+  display: grid; gap: 6px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.work-spec .row .k {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+.work-spec .row .v {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+.work-body { display: grid; gap: 64px; }
+.work-block h3 {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+  display: flex; align-items: baseline; gap: 12px;
+}
+.work-block h3 .en {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--red);
+}
+.work-block p {
+  font-size: 15px;
+  line-height: 2.05;
+  margin: 0;
+  color: #2a2520;
+}
+.work-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid; gap: 10px;
+}
+.work-block ul li {
+  padding-left: 22px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.work-block ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.8em;
+  width: 10px; height: 1px;
+  background: var(--red);
+}
+.work-nav {
+  margin-top: 96px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line-strong);
+}
+.work-nav a {
+  padding: 32px 0;
+  display: grid; gap: 8px;
+  transition: padding .3s;
+}
+.work-nav a:hover { padding-left: 12px; }
+.work-nav a + a { padding-right: 0; text-align: right; border-left: 1px solid var(--line); padding-left: 32px; }
+.work-nav a + a:hover { padding-right: 12px; padding-left: 32px; }
+.work-nav .nav-k {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+.work-nav .nav-t {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+/* ===== Contact form ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 96px;
+}
+.contact-info { display: grid; gap: 40px; align-self: start; }
+.contact-info .block { display: grid; gap: 10px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.contact-info .block .k {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; letter-spacing: 0.2em;
+  color: var(--muted);
+}
+.contact-info .block .v {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.contact-info .block .v a { color: var(--red); border-bottom: 1px solid currentColor; }
+
+.contact-form { display: grid; gap: 24px; }
+.contact-form .field { display: grid; gap: 8px; }
+.contact-form .field label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 8px;
+}
+.contact-form .field label .req {
+  color: var(--red);
+  font-weight: 700;
+}
+.contact-form .field input,
+.contact-form .field select,
+.contact-form .field textarea {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 15px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-strong);
+  background: var(--off);
+  color: var(--ink);
+  width: 100%;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.contact-form .field input:focus,
+.contact-form .field select:focus,
+.contact-form .field textarea:focus {
+  border-color: var(--red);
+  background: #fff;
+}
+.contact-form .field textarea { resize: vertical; min-height: 160px; }
+.contact-form .field-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.contact-form .submit-row {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-form button[type="submit"] {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 18px 32px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--off);
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.contact-form button[type="submit"]:hover { background: var(--red); border-color: var(--red); }
+.contact-form .priv-note {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.contact-form .priv-note a { color: var(--red); border-bottom: 1px solid currentColor; }
+
+/* ===== Privacy / Legal text-heavy pages ===== */
+.legal-content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.legal-content h3 {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin: 56px 0 18px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-strong);
+  display: flex; align-items: baseline; gap: 12px;
+}
+.legal-content h3:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+.legal-content h3 .n {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 0.18em;
+}
+.legal-content p {
+  font-size: 15px;
+  line-height: 2.0;
+  color: #2a2520;
+  margin: 0 0 16px;
+}
+.legal-content ul, .legal-content ol {
+  padding-left: 24px;
+  margin: 0 0 16px;
+}
+.legal-content li {
+  font-size: 15px;
+  line-height: 1.95;
+  margin-bottom: 8px;
+}
+.legal-meta {
+  margin-top: 80px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== News list ===== */
+.news-page-list { display: grid; }
+.news-page-item {
+  display: grid;
+  grid-template-columns: 140px 120px 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding .3s, background .3s;
+}
+.news-page-item:first-child { border-top: 1px solid var(--line-strong); }
+.news-page-item:hover { padding-left: 14px; background: rgba(255,255,255,.4); }
+
+/* ===== Clients page ===== */
+.clients-empty {
+  padding: 96px 32px;
+  text-align: center;
+  border: 1px dashed var(--line-strong);
+  background: rgba(255,255,255,.3);
+}
+.clients-empty .big {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: clamp(80px, 12vw, 200px);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink);
+}
+.clients-empty .msg {
+  margin-top: 24px;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line-strong);
+  margin-top: 48px;
+}
+.client-cell {
+  aspect-ratio: 3 / 2;
+  border-right: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24px;
+  gap: 8px;
+  background: var(--paper);
+}
+.client-cell .logo-placeholder {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+.client-cell .industry {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .works-row { grid-template-columns: 1fr 32px; }
+  .works-row .w-status, .works-row > div[style*="54px"], .works-row .w-meta { display: none; }
+  .works-filter-group { grid-template-columns: 1fr; gap: 12px; }
+  .work-detail-grid { grid-template-columns: 1fr; }
+  .work-spec { position: static; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-form .field-row { grid-template-columns: 1fr; }
+  .clients-grid { grid-template-columns: repeat(2, 1fr); }
+}

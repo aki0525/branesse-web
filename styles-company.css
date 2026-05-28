@@ -1,0 +1,182 @@
+/* ===== Statement pull-quote ===== */
+.stmt-pullquote {
+  margin-top: 64px;
+  padding: 40px 48px;
+  border-left: 2px solid var(--red);
+  background: rgba(255,255,255,0.4);
+  display: grid;
+  gap: 16px;
+  max-width: 720px;
+}
+.stmt-pullquote .pq-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--red);
+}
+.stmt-pullquote .pq-text {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 600;
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.stmt-pullquote .pq-text .accent { color: var(--red); }
+
+/* ===== Company section (dark — final chapter before footer) ===== */
+.company {
+  padding: 100px 0 140px;
+  background: var(--ink);
+  color: var(--off);
+  border-top: 1px solid rgba(255,255,255,.08);
+  position: relative;
+}
+.company .label { color: rgba(255,255,255,.45); }
+.company-inner { display: grid; gap: 96px; }
+
+/* Brand origin equation */
+.brand-origin h2.brand-eq {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(26px, 3.2vw, 44px);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 18px 28px;
+}
+.brand-eq .bo-word {
+  display: inline-grid;
+  gap: 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,.35);
+}
+.brand-eq .bo-en { font-weight: 700; color: var(--off); }
+.brand-eq .bo-jp {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,.55);
+}
+.brand-eq .bo-x, .brand-eq .bo-eq {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 0.9em;
+  color: var(--red);
+  padding-bottom: 8px;
+}
+.brand-eq .bo-result {
+  font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: -0.03em;
+  color: var(--red);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--red);
+  display: inline-block;
+}
+.brand-origin-body {
+  margin-top: 28px;
+  max-width: 64ch;
+  font-size: 15px;
+  line-height: 2.05;
+  color: rgba(255,255,255,.72);
+}
+.brand-origin-body strong { color: var(--off); font-weight: 700; }
+
+/* Representative message */
+.rep-message {
+  padding: 56px 0;
+  border-top: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.rep-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 96px;
+  align-items: start;
+}
+.rep-message .label { color: rgba(255,255,255,.45); }
+.rep-h3 {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 3.8vw, 56px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin: 0;
+  word-break: keep-all;
+  color: var(--off);
+}
+.rep-message p {
+  font-size: 15px;
+  line-height: 2.05;
+  color: rgba(255,255,255,.72);
+  max-width: 50ch;
+  margin: 0;
+}
+.rep-sign {
+  margin-top: 32px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  display: grid; gap: 6px;
+}
+.rep-sign .mono {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,.5);
+}
+.rep-sign .rep-name {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--off);
+}
+
+/* Company spec table */
+.company-spec { }
+.cs-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  margin-bottom: 24px;
+}
+.cs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cs-table th, .cs-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 22px 16px 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  font-weight: 400;
+}
+.cs-table tr:first-child th, .cs-table tr:first-child td {
+  border-top: 1px solid rgba(255,255,255,.25);
+}
+.cs-table th {
+  width: 240px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  padding-top: 26px;
+}
+.cs-table td {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--off);
+}
+.cs-table .cs-en {
+  display: inline-block;
+  margin-left: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,.45);
+}

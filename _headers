@@ -1,0 +1,24 @@
+# === Branesse — Netlify _headers ===
+
+# JSX files served as JS so Babel can transform them
+/*.jsx
+  Content-Type: application/javascript; charset=utf-8
+
+# Assets — long cache
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS — medium cache (will be busted by edits)
+/*.css
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# HTML — no cache (always fresh)
+/*.html
+  Cache-Control: no-cache, must-revalidate
+
+# Security headers (everything)
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CLIENTS / PARTNERS — Branesse</title>
+<meta name="description" content="Branesseがご一緒している企業・プロジェクト一覧(掲載許諾範囲)。" />
+<meta property="og:title" content="CLIENTS / PARTNERS — Branesse" />
+<meta property="og:description" content="Branesseがご一緒している企業・プロジェクト一覧。" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/assets/ogp-default.png" />
+<meta name="twitter:image" content="/assets/ogp-default.png" />
+<meta property="og:site_name" content="Branesse" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CLIENTS / PARTNERS — Branesse" />
+<meta name="twitter:description" content="Branesseがご一緒している企業・プロジェクト一覧。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/styles-creative.css" />
+<link rel="stylesheet" href="/styles-company.css" />
+<link rel="stylesheet" href="/styles-works.css" />
+<link rel="stylesheet" href="/styles-works2.css" />
+<link rel="stylesheet" href="/styles-subpages.css" />
+<link rel="stylesheet" href="/styles-mobile.css" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#15356F" />
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="/components/creative.jsx"></script>
+<script type="text/babel" src="/components/subpage-shell.jsx"></script>
+
+<script type="text/babel">
+function ClientsPage() {
+  // 掲載許諾取得後に有効化:配列に企業情報を追加すれば自動表示
+  const APPROVED_CLIENTS = [
+    // 例: { name: "CLIENT NAME", industry: "INDUSTRY", role: "支援内容" },
+  ];
+
+  return (
+    <React.Fragment>
+      <SubHeader />
+      <main>
+        <PageHero
+          num="CLIENTS / PARTNERS"
+          en="Clients & Partners"
+          jp={<>ご一緒している<br/>パートナー<em>.</em></>}
+          sub="掲載許諾をいただいた企業・プロジェクトを順次公開しています。プロジェクトの詳細については WORKS ページをご覧ください。"
+          breadcrumbs={[
+            { label: "TOP", href: "/" },
+            { label: "CLIENTS", href: "/clients/" },
+          ]}
+        />
+
+        <section className="page-section">
+          <div className="container">
+            {APPROVED_CLIENTS.length === 0 ? (
+              <React.Fragment>
+                <div className="sec-label">STATUS · 現在の状況</div>
+                <h3 className="sec-h">許諾取得を順次<br/>進めています<em>.</em></h3>
+
+                <div className="clients-empty" style={{marginTop: 48}}>
+                  <div className="big">PARTNERS</div>
+                  <div className="msg">
+                    現在、企業・プロジェクトの掲載許諾を順次取得中です。<br/>
+                    取得が完了したものから、こちらのページで公開いたします。
+                  </div>
+                </div>
+
+                <div style={{marginTop:80, display:"grid", gridTemplateColumns:"1fr 1fr", gap:64}}>
+                  <div>
+                    <div className="sec-label" style={{marginBottom:14}}>FOR CLIENTS</div>
+                    <h4 style={{fontFamily:'"Zen Kaku Gothic New"', fontWeight:700, fontSize:22, margin:'0 0 16px'}}>掲載のご相談</h4>
+                    <p style={{fontSize:14, lineHeight:1.95, color:"#2a2520", margin:0}}>
+                      ご一緒したプロジェクトの掲載・実績公開について、許諾範囲やトーンも含めて柔軟に対応します。お気軽にご相談ください。
+                    </p>
+                    <a href="/contact/" className="btn-ghost" style={{marginTop:24}}>掲載相談する <span className="arrow"></span></a>
+                  </div>
+                  <div>
+                    <div className="sec-label" style={{marginBottom:14}}>FOR PARTNERS</div>
+                    <h4 style={{fontFamily:'"Zen Kaku Gothic New"', fontWeight:700, fontSize:22, margin:'0 0 16px'}}>業務提携のご相談</h4>
+                    <p style={{fontSize:14, lineHeight:1.95, color:"#2a2520", margin:0}}>
+                      制作会社、エージェンシー、メディア、自治体・教育機関など、Branesseと共創いただける皆さまからのご連絡を歓迎します。
+                    </p>
+                    <a href="/contact/" className="btn-ghost" style={{marginTop:24}}>提携相談する <span className="arrow"></span></a>
+                  </div>
+                </div>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <div className="sec-label">CLIENTS · 掲載許諾取得済</div>
+                <h3 className="sec-h">ご一緒している<br/>企業・プロジェクト<em>.</em></h3>
+                <div className="clients-grid">
+                  {APPROVED_CLIENTS.map((c, i) => (
+                    <div key={i} className="client-cell">
+                      <div className="logo-placeholder">{c.name}</div>
+                      <div className="industry">{c.industry}</div>
+                    </div>
+                  ))}
+                </div>
+              </React.Fragment>
+            )}
+          </div>
+        </section>
+
+        <SubFooter />
+      </main>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<ClientsPage />);
+</script>
+</body>
+</html>

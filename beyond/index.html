@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BEYOND ENTERTAINMENT — Branesse</title>
+<meta name="description" content="エンタメで培った力を、社会領域へ。Branesseの子育て・教育・地域への社会実装。" />
+<meta property="og:title" content="BEYOND ENTERTAINMENT — Branesse" />
+<meta property="og:description" content="エンタメで培った力を、社会領域へ。Branesseの子育て・教育・地域への社会実装。" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/assets/ogp-default.png" />
+<meta name="twitter:image" content="/assets/ogp-default.png" />
+<meta property="og:site_name" content="Branesse" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BEYOND ENTERTAINMENT — Branesse" />
+<meta name="twitter:description" content="エンタメで培った力を、社会領域へ。Branesseの子育て・教育・地域への社会実装。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/styles-creative.css" />
+<link rel="stylesheet" href="/styles-company.css" />
+<link rel="stylesheet" href="/styles-works.css" />
+<link rel="stylesheet" href="/styles-works2.css" />
+<link rel="stylesheet" href="/styles-subpages.css" />
+<link rel="stylesheet" href="/styles-mobile.css" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#15356F" />
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="/components/creative.jsx"></script>
+<script type="text/babel" src="/components/subpage-shell.jsx"></script>
+
+<script type="text/babel">
+const PROGRAMS = [
+  {
+    n: "01",
+    en: "Parenting Media",
+    jp: "子育て世代向けメディア",
+    lead: "子育て、教育、お金、働き方など、親と子どもの選択肢を広げる情報を、わかりやすく届けるメディア事業。",
+    items: [
+      "親と子どもの両方の視点を踏まえた、生活情報メディアの企画・運営",
+      "信頼性と読みやすさを両立するコンテンツ設計",
+      "SNS・YouTube・記事を横断した発信フォーマットの開発",
+    ],
+  },
+  {
+    n: "02",
+    en: "Education Contents",
+    jp: "親子向け・教育コンテンツ",
+    lead: "子どもの好奇心や親子の体験につながる、動画・記事・SNS・教材的コンテンツの企画開発。",
+    items: [
+      "親子で楽しめるYouTube・ライブ企画",
+      "学校・家庭で使える教材的コンテンツの企画",
+      "プレゼントキャンペーン・アンケート設計",
+    ],
+  },
+  {
+    n: "03",
+    en: "Local · Community",
+    jp: "地域・コミュニティ支援",
+    lead: "地域スポーツ、教育、子ども向け活動など、地域と親子をつなぐ情報発信・Web・SNS支援。",
+    items: [
+      "地域スポーツクラブのWeb / SNS / ブランディング支援",
+      "地域団体向けの情報発信基盤の構築",
+      "スポンサー提案 / 地域企業との連携設計",
+    ],
+  },
+];
+
+function BeyondPage() {
+  return (
+    <React.Fragment>
+      <SubHeader active="BEYOND" />
+      <main>
+        <PageHero
+          num="BEYOND ENTERTAINMENT"
+          en="Social Implementation"
+          jp={<>次の<em>選択肢</em>を、<br/>社会に。</>}
+          sub="エンタメ・IP・SNS・ライブ領域で培った企画力・制作力・発信力を、子育て・教育・地域領域へ展開。親と子どもの選択肢を広げるメディア、コンテンツ、デジタル施策に取り組んでいます。"
+          breadcrumbs={[
+            { label: "TOP", href: "/" },
+            { label: "BEYOND", href: "/beyond/" },
+          ]}
+        />
+
+        {/* Intro band */}
+        <section className="page-section" style={{background:"var(--paper-2)", borderTop:"1px solid var(--line)"}}>
+          <div className="container">
+            <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap: 96, alignItems:"start"}}>
+              <div>
+                <div className="sec-label">WHY · 取り組む理由</div>
+                <h3 className="sec-h">エンタメの<br/>「届ける力」を、<br/>社会領域へ翻訳する。</h3>
+              </div>
+              <div>
+                <p style={{fontSize:15, lineHeight:2.05, color:"#2a2520", margin:0}}>
+                  エンタメ・IP・SNS・ライブの現場で培ってきた「人の関心を惹き、関係性を続ける」ためのクリエイティブは、本来、子育てや教育、地域といった社会領域でこそ強く効くと、私たちは考えています。<br/><br/>
+                  情報の届きにくさ、関係性の希薄化、参加へのハードル。それらをコンテンツの力でやわらげていくこと。それが Branesse の Beyond Entertainment です。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Programs */}
+        <section className="page-section">
+          <div className="container">
+            <div className="sec-label">PROGRAMS · 取り組みの3領域</div>
+            <h3 className="sec-h">3つの実装領域<em>.</em></h3>
+
+            <div style={{display:"grid", gap: 48, marginTop: 56}}>
+              {PROGRAMS.map(p => (
+                <div key={p.n} style={{display:"grid", gridTemplateColumns:"80px 1fr 1.5fr", gap:48, alignItems:"start", padding:"40px 0", borderTop:"1px solid var(--line-strong)"}}>
+                  <span className="mono" style={{fontSize:11, letterSpacing:".18em", color:"var(--red)"}}>[{p.n}]</span>
+                  <div>
+                    <h4 style={{fontFamily:'"Inter"', fontWeight:600, fontSize:24, letterSpacing:'-0.01em', margin:'0 0 8px'}}>{p.en}</h4>
+                    <div style={{fontFamily:'"Zen Kaku Gothic New"', fontWeight:500, fontSize:15, color:"#3a3530"}}>{p.jp}</div>
+                  </div>
+                  <div>
+                    <p style={{fontSize:15, lineHeight:2, color:"#2a2520", margin:'0 0 18px'}}>{p.lead}</p>
+                    <ul style={{listStyle:"none", padding:0, margin:0, display:"grid", gap:8}}>
+                      {p.items.map((it, i) => (
+                        <li key={i} style={{paddingLeft:22, position:"relative", fontSize:14, lineHeight:1.8, color:"#3a3530"}}>
+                          <span style={{position:"absolute", left:0, top:'0.85em', width:10, height:1, background:"var(--red)"}}></span>
+                          {it}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA — partnership */}
+        <section className="page-section" style={{background:"var(--ink)", color:"var(--off)"}}>
+          <div className="container">
+            <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:64, alignItems:"end"}}>
+              <div>
+                <div className="sec-label" style={{color:"var(--red)"}}>PARTNERSHIP · 提携募集</div>
+                <h3 className="sec-h" style={{color:"var(--off)"}}>提携・共創、<br/>歓迎しています<em style={{color:"var(--red)"}}>.</em></h3>
+                <p style={{fontSize:15, lineHeight:2, color:"rgba(255,255,255,.72)", maxWidth:"42ch", margin:0}}>
+                  自治体、教育機関、NPO、地域団体、メディア企業など、子育て・教育・地域領域に取り組む団体との連携を歓迎します。
+                </p>
+              </div>
+              <div style={{textAlign:"right"}}>
+                <a href="/contact/" style={{display:"inline-flex", alignItems:"center", gap:14, padding:"20px 32px", border:"1px solid var(--off)", background:"transparent", color:"var(--off)", fontFamily:'"Inter"', fontSize:13, letterSpacing:".18em", fontWeight:600}}>
+                  PROPOSE PARTNERSHIP →
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <SubFooter />
+      </main>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<BeyondPage />);
+</script>
+</body>
+</html>
