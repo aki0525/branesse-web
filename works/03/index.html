@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ライブ制作 / クリエイティブ制作 — WORKS — Branesse</title>
+<meta name="description" content="ライブ・イベント領域における、発表映像、ティザー制作、演出まわり、制作進行支援。" />
+<meta property="og:title" content="ライブ制作 / クリエイティブ制作 — WORKS — Branesse" />
+<meta property="og:description" content="ライブ・イベント領域における、発表映像、ティザー制作、演出まわり、制作進行支援。" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="/assets/ogp-default.png" />
+<meta name="twitter:image" content="/assets/ogp-default.png" />
+<meta property="og:site_name" content="Branesse" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ライブ制作 / クリエイティブ制作 — WORKS — Branesse" />
+<meta name="twitter:description" content="ライブ・イベント領域における、発表映像、ティザー制作、演出まわり、制作進行支援。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/styles-creative.css" />
+<link rel="stylesheet" href="/styles-company.css" />
+<link rel="stylesheet" href="/styles-works.css" />
+<link rel="stylesheet" href="/styles-works2.css" />
+<link rel="stylesheet" href="/styles-subpages.css" />
+<link rel="stylesheet" href="/styles-mobile.css" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#15356F" />
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="/components/creative.jsx"></script>
+<script type="text/babel" src="/components/subpage-shell.jsx"></script>
+
+<script type="text/babel">
+function WorkDetailPage() {
+  return (
+    <React.Fragment>
+      <SubHeader active="WORKS" />
+      <main>
+        <PageHero
+          num="WORKS / 03"
+          en="Live Production & Direction"
+          jp={<>ライブ制作 /<br/>クリエイティブ制作。</>}
+          sub="ライブ・イベント領域において、発表映像、ティザー制作、演出まわり、制作進行、映像制作支援を担当。ステージ、映像、3D素材、演出意図を整理しながら、ライブ体験を高めるクリエイティブ制作を支援しました。"
+          breadcrumbs={[
+            { label: "TOP", href: "/" },
+            { label: "WORKS", href: "/works/" },
+            { label: "03 ライブ制作 / クリエイティブ制作", href: "/works/03/" },
+          ]}
+        />
+
+        <section className="page-section">
+          <div className="container">
+            <div className="work-detail-grid">
+
+              <aside className="work-spec">
+                <div className="row"><span className="k">STATUS</span><span className="v"><span style={{display:"inline-block",width:8,height:8,borderRadius:"50%",background:"var(--muted)",marginRight:8,verticalAlign:"middle"}}></span>COMPLETED / 完了</span></div>
+                <div className="row"><span className="k">CATEGORY</span><span className="v">Live / Creative / Movie / Production</span></div>
+                <div className="row"><span className="k">PERIOD</span><span className="v">2025 完了</span></div>
+                <div className="row"><span className="k">ROLE</span><span className="v">Creative Direction<br/>Production Management</span></div>
+                <div className="row"><span className="k">OUTPUT</span><span className="v">ティザー / 発表映像<br/>映像構成 / 演出意図<br/>VRMモデル検証</span></div>
+                <div className="row"><span className="k">CLIENT</span><span className="v">ライブ / イベント領域<br/><span className="mono" style={{fontSize:10,color:"var(--muted)"}}>(NDA / 匿名)</span></span></div>
+              </aside>
+
+              <div className="work-body">
+                <div className="work-block">
+                  <h3>担当領域 <span className="en">SCOPE</span></h3>
+                  <ul>
+                    <li>ライブ発表ティザー制作</li>
+                    <li>映像構成整理</li>
+                    <li>演出意図の整理</li>
+                    <li>ステージ / 3D / 素材確認</li>
+                    <li>VRMモデル検証</li>
+                    <li>Unity / MToon / 表情・演出確認</li>
+                    <li>制作進行・関係者間のコミュニケーション</li>
+                    <li>ライブ制作支援</li>
+                  </ul>
+                </div>
+
+                <div className="work-block">
+                  <h3>課題 <span className="en">CHALLENGE</span></h3>
+                  <p>ライブ制作では、映像、演出、ステージ、3D素材、キャラクター表現、関係者の意図が複雑に絡みます。</p>
+                  <p>特に発表映像やティザー制作では、短い尺の中で期待感を作り、ライブ本編への熱量につなげる構成が求められました。また、制作側とクライアント側の認識差を埋めながら進行する必要がありました。</p>
+                </div>
+
+                <div className="work-block">
+                  <h3>アプローチ <span className="en">APPROACH</span></h3>
+                  <p>まず、ライブの目的、発表内容、演出上の見せ場を整理。映像として何を見せるべきか、どのタイミングで期待感を高めるべきかを構成に落とし込みました。</p>
+                  <p>また、3D素材やVRMモデルなど、技術的な確認が必要な要素についても、制作前に想定挙動や表情・演出まわりを確認。現場や制作チームが判断しやすいよう、確認内容を整理して共有しました。</p>
+                </div>
+
+                <div className="work-block">
+                  <h3>成果・アウトプット <span className="en">OUTCOME</span></h3>
+                  <ul>
+                    <li>ライブ発表ティザー制作</li>
+                    <li>映像構成案</li>
+                    <li>演出意図整理</li>
+                    <li>3D / VRMモデル確認</li>
+                    <li>表情・演出まわりの確認</li>
+                    <li>制作進行サポート</li>
+                    <li>関係者向け確認資料 / 共有文面</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="work-nav">
+              <a href="/works/02/">
+                <span className="nav-k mono">← PREV / 02</span>
+                <span className="nav-t">大型IPコンテンツ制作支援</span>
+              </a>
+              <a href="/works/">
+                <span className="nav-k mono">BACK TO WORKS →</span>
+                <span className="nav-t">プロジェクト一覧</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <SubFooter />
+      </main>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<WorkDetailPage />);
+</script>
+</body>
+</html>
