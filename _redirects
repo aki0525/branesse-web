@@ -1,7 +1,5 @@
 # === Branesse — Netlify _redirects ===
-
-# Force www (apex → www)
-https://branesse.com/* https://www.branesse.com/:splat 301!
+# (Apex→www handled by Netlify Primary domain setting, no rule needed here)
 
 # Legacy WordPress paths → new structure
 /home                /              301
@@ -14,5 +12,3 @@ https://branesse.com/* https://www.branesse.com/:splat 301!
 
 # Old works slugs (if any)
 /works/index.html    /works/        301
-
-# (SPA fallback removed — was breaking JSX/asset requests)
