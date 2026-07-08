@@ -10,7 +10,10 @@ function SiteHeader() {
         <a href="#about">ABOUT</a>
         <a href="#contact">CONTACT</a>
       </nav>
-      <div className="corner mono"><LiveClock /></div>
+      <div className="header-right">
+        <div className="corner mono"><LiveClock /></div>
+        <MobileMenu />
+      </div>
     </header>
   );
 }

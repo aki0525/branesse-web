@@ -14,13 +14,16 @@ function SubHeader({ active }) {
   ];
   return (
     <header className="site-header subpage-header">
-      <a href="/" className="brand"><img src="//assets/logo-horizontal.png" alt="Branesse" /></a>
+      <a href="/" className="brand"><img src="/assets/logo-horizontal.png" alt="Branesse" /></a>
       <nav>
         {links.map((l) => (
           <a key={l.label} href={l.href} className={active === l.label ? "active" : ""}>{l.label}</a>
         ))}
       </nav>
-      <div className="corner mono"><LiveClock /></div>
+      <div className="header-right">
+        <div className="corner mono"><LiveClock /></div>
+        <MobileMenu />
+      </div>
     </header>
   );
 }
@@ -57,7 +60,7 @@ function SubFooter() {
         <div className="foot-inner">
           <div className="foot-top">
             <div>
-              <div className="foot-mark"><img src="//assets/logo-horizontal.png" alt="Branesse" /></div>
+              <div className="foot-mark"><img src="/assets/logo-horizontal.png" alt="Branesse" /></div>
               <div className="foot-tagline">
                 コンテンツで、ブランドとファンを動かす。<br/>
                 エンタメ・IP・SNS・ライブ領域のクリエイティブプロデュース。

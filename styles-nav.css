@@ -1,0 +1,97 @@
+/* ===== Mobile hamburger nav ===== */
+.header-right { display: flex; align-items: center; gap: 16px; }
+.mnav-btn {
+  display: none;
+  position: relative;
+  width: 44px; height: 44px;
+  background: transparent;
+  border: 1px solid currentColor;
+  cursor: pointer;
+  color: inherit;
+  z-index: 95;
+  padding: 0;
+}
+.mnav-btn span {
+  position: absolute;
+  left: 12px; right: 12px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1), top .3s;
+}
+.mnav-btn span:nth-child(1) { top: 17px; }
+.mnav-btn span:nth-child(2) { top: 25px; }
+.mnav-btn.open span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.mnav-btn.open span:nth-child(2) { top: 21px; transform: rotate(-45deg); }
+
+.mnav-overlay {
+  position: fixed; inset: 0;
+  z-index: 90;
+  background: var(--navy-deep, #0E2750);
+  color: #FAF8F2;
+  display: flex;
+  flex-direction: column;
+  padding: 96px 28px 32px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s ease, visibility .35s;
+}
+.mnav-overlay.open { opacity: 1; visibility: visible; }
+.mnav-head {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 28px;
+}
+.mnav-list { display: grid; }
+.mnav-list a {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  grid-template-rows: auto auto;
+  align-items: baseline;
+  column-gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  color: #FAF8F2;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .5s ease, transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.mnav-overlay.open .mnav-list a { opacity: 1; transform: translateY(0); }
+.mnav-num {
+  grid-row: 1 / span 2;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--gold, #E5A516);
+}
+.mnav-label {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.mnav-jp {
+  grid-column: 2;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,.5);
+  margin-top: 4px;
+}
+.mnav-foot {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,.5);
+}
+.mnav-foot a { color: var(--gold, #E5A516); }
+
+@media (max-width: 768px) {
+  .mnav-btn { display: block; }
+  /* difference-blend header breaks the fixed overlay on mobile — switch to solid */
+  .site-header { mix-blend-mode: normal; color: var(--ink); background: rgba(244,241,234,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .site-header .brand img { filter: none; }
+}
+

@@ -429,12 +429,12 @@ a { color: inherit; text-decoration: none; }
 }
 .spark {
   height: 96px; position: relative;
-  background: linear-gradient(to top, rgba(229,9,20,.06), transparent);
+  background: linear-gradient(to top, rgba(229,165,22,.08), transparent);
 }
 .spark svg { width: 100%; height: 100%; display: block; }
 .spark .grid { stroke: var(--line); stroke-width: 1; }
 .spark .line { fill: none; stroke: var(--red); stroke-width: 1.5; }
-.spark .area { fill: rgba(229,9,20,.08); stroke: none; }
+.spark .area { fill: rgba(229,165,22,.10); stroke: none; }
 .analytics-row {
   display: flex; justify-content: space-between; margin-top: 10px;
   font-family: "JetBrains Mono", monospace;
@@ -838,7 +838,7 @@ a { color: inherit; text-decoration: none; }
 .viz-live {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 50% 90%, rgba(229,9,20,.55), transparent 60%),
+    radial-gradient(ellipse at 50% 90%, rgba(229,165,22,.45), transparent 60%),
     linear-gradient(180deg, #0d0d10 0%, #1b1b20 100%);
   overflow: hidden;
 }
@@ -847,7 +847,7 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   top: 0; bottom: 30%;
   width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(229,9,20,.8), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(229,165,22,.8), transparent);
 }
 .viz-live::before { left: 28%; animation: lasersweep 3s ease-in-out infinite; }
 .viz-live::after  { right: 28%; animation: lasersweep 3s ease-in-out 1.2s infinite; }
@@ -1137,6 +1137,27 @@ a { color: inherit; text-decoration: none; }
 .rv.d2 { transition-delay: .16s; }
 .rv.d3 { transition-delay: .24s; }
 .rv.d4 { transition-delay: .32s; }
+
+/* project card hover — scene zoom */
+.proj-card .visual > * {
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+  transform-origin: center;
+}
+.proj-A .card:hover .proj-card .visual > *,
+.proj-B .card:hover .proj-card .visual > *,
+.proj-C .card:hover .proj-card .visual > * {
+  transform: scale(1.04);
+}
+
+/* reduced motion — respect OS setting */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* selection */
 ::selection { background: var(--red); color: #fff; }

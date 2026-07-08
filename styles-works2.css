@@ -80,7 +80,7 @@
 }
 .viz-majorip {
   background:
-    radial-gradient(ellipse at 20% 80%, rgba(229,9,20,.18), transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(229,165,22,.16), transparent 50%),
     linear-gradient(135deg, #0d0d10 0%, #161618 60%, #1c1c20 100%);
   color: #fff;
 }

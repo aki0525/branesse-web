@@ -92,4 +92,103 @@ function LiveClock() {
   return <span className="live-clock">JST · {hh}:{mm}:{ss}</span>;
 }
 
-Object.assign(window, { SectionMarker, ScrollProgress, ScrollMeter, LiveClock });
+/* ---------------- Mobile hamburger menu (shared) ---------------- */
+function MobileMenu({ links }) {
+  const [open, setOpen] = React.useState(false);
+  React.useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+  const defaultLinks = [
+    { href: "/works/",         label: "WORKS",   jp: "動いているプロジェクト" },
+    { href: "/#capabilities",  label: "SERVICE", jp: "できること、関わり方" },
+    { href: "/beyond/",        label: "BEYOND",  jp: "クリエイティブの社会実装" },
+    { href: "/news/",          label: "NEWS",    jp: "お知らせ" },
+    { href: "/about/",         label: "ABOUT",   jp: "私たちの姿勢と会社概要" },
+    { href: "/contact/",       label: "CONTACT", jp: "ご相談はこちら" },
+  ];
+  const items = links || defaultLinks;
+  return (
+    <React.Fragment>
+      <button
+        className={"mnav-btn" + (open ? " open" : "")}
+        onClick={() => setOpen(!open)}
+        aria-label={open ? "メニューを閉じる" : "メニューを開く"}
+        aria-expanded={open}
+      >
+        <span></span><span></span>
+      </button>
+      <div className={"mnav-overlay" + (open ? " open" : "")}>
+        <div className="mnav-head mono">BRANESSE — MENU</div>
+        <nav className="mnav-list">
+          {items.map((l, i) => (
+            <a key={l.label} href={l.href} onClick={() => setOpen(false)} style={{ transitionDelay: (open ? i * 60 + 100 : 0) + "ms" }}>
+              <span className="mnav-num mono">0{i + 1}</span>
+              <span className="mnav-label">{l.label}</span>
+              <span className="mnav-jp">{l.jp}</span>
+            </a>
+          ))}
+        </nav>
+        <div className="mnav-foot mono">
+          <a href="mailto:info@branesse.com">info@branesse.com</a>
+          <span>© BRANESSE LLC.</span>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+}
+
+/* ---------------- Auto scroll-reveal (all pages) ----------------
+   Tags common elements with .rv and reveals them on intersect.
+   Fail-safe: if JS breaks, no .rv class is added → content stays visible. */
+function initAutoReveal() {
+  const selectors = [
+    ".section-head", ".caps-intro", ".proj-head",
+    ".cap-cell", ".proj-A .card", ".proj-B .card", ".proj-C .gallery .card",
+    ".value-row", ".values-prose",
+    ".news-item", ".news-page-item",
+    ".stmt h2", ".stmt-pullquote", ".stmt-body",
+    ".brand-origin", ".rep-message", ".company-spec",
+    ".sect-marker .label-block",
+    ".work-block", ".work-spec",
+    ".works-row",
+    ".page-hero-inner",
+  ];
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -5% 0px" });
+
+  const tag = () => {
+    selectors.forEach((sel) => {
+      document.querySelectorAll(sel).forEach((el, i) => {
+        if (el.dataset.rvDone) return;
+        el.dataset.rvDone = "1";
+        const r = el.getBoundingClientRect();
+        // already in view on load → show immediately without animation
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          el.classList.add("rv", "in");
+        } else {
+          el.classList.add("rv");
+          io.observe(el);
+        }
+      });
+    });
+  };
+  // React renders async; tag in a few passes
+  [400, 1200, 2500, 4500].forEach((ms) => setTimeout(tag, ms));
+}
+if (!window.__branesseRevealInit) {
+  window.__branesseRevealInit = true;
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAutoReveal);
+  } else {
+    initAutoReveal();
+  }
+}
+
+Object.assign(window, { SectionMarker, ScrollProgress, ScrollMeter, LiveClock, MobileMenu });

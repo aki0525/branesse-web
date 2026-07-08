@@ -424,7 +424,7 @@ function Footer() {
         <div className="foot-inner">
           <div className="foot-top">
             <div>
-              <div className="foot-mark"><img src="assets/logo-horizontal.png" alt="Branesse" /></div>
+              <div className="foot-mark"><img src="/assets/logo-horizontal.png" alt="Branesse" /></div>
               <div className="foot-tagline">
                 コンテンツで、ブランドとファンを動かす。<br/>
                 エンタメ・IP・SNS・ライブ領域のクリエイティブプロデュース。

@@ -59,7 +59,7 @@
 /* ---------- 01 · OFFICIAL IP CHANNEL ---------- */
 .viz-ch2 {
   background:
-    radial-gradient(ellipse at 70% 30%, rgba(229,9,20,.15), transparent 50%),
+    radial-gradient(ellipse at 70% 30%, rgba(229,165,22,.14), transparent 50%),
     linear-gradient(180deg, #0f0f12 0%, #0a0a0c 100%);
   color: #fff;
 }
@@ -146,7 +146,7 @@
   top: -5%;
   width: 80px;
   height: 110%;
-  background: linear-gradient(180deg, rgba(229,9,20,.5) 0%, rgba(229,9,20,.0) 80%);
+  background: linear-gradient(180deg, rgba(229,165,22,.45) 0%, rgba(229,165,22,.0) 80%);
   filter: blur(8px);
   transform-origin: top center;
   animation: beamSway 4s ease-in-out infinite alternate;
@@ -194,7 +194,7 @@
   position: absolute; left: 0; right: 0; bottom: 0;
   height: 3px;
   background: var(--red);
-  box-shadow: 0 -10px 30px rgba(229,9,20,.5);
+  box-shadow: 0 -10px 30px rgba(229,165,22,.5);
 }
 .viz-live2 .on-air {
   position: absolute; top: 14px; left: 14px;

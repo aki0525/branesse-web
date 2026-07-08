@@ -1,18 +1,35 @@
 function Loader({ duration = 3000, onDone, version = 0 }) {
+  // Show full loader only on first visit this session; replay (version>0) always shows
+  const alreadySeen = version === 0 && (() => {
+    try { return sessionStorage.getItem("branesse_seen") === "1"; } catch (e) { return false; }
+  })();
   const [pct, setPct] = React.useState(0);
   const [stage, setStage] = React.useState("loading"); // loading | split | gone
-  const [mounted, setMounted] = React.useState(true);
+  const [mounted, setMounted] = React.useState(!alreadySeen);
   const [status, setStatus] = React.useState("INITIALIZING");
+  const skipRef = React.useRef(false);
 
   React.useEffect(() => {
+    if (alreadySeen) { onDone && onDone(); return; }
     setPct(0);
     setStage("loading");
     setMounted(true);
     setStatus("INITIALIZING");
+    skipRef.current = false;
 
     const start = performance.now();
     let raf;
+    const finish = () => {
+      try { sessionStorage.setItem("branesse_seen", "1"); } catch (e) {}
+      setTimeout(() => setStage("split"), 300);
+      setTimeout(() => {
+        setStage("gone");
+        onDone && onDone();
+      }, 300 + 1000);
+      setTimeout(() => setMounted(false), 300 + 1400);
+    };
     const tick = (t) => {
+      if (skipRef.current) { setPct(100); finish(); return; }
       const p = Math.min(1, (t - start) / duration);
       // ease out cubic for nicer feel
       const eased = 1 - Math.pow(1 - p, 1.7);
@@ -23,14 +40,7 @@ function Loader({ duration = 3000, onDone, version = 0 }) {
       else if (val < 90) setStatus("RENDERING SCENE");
       else setStatus("READY");
       if (p < 1) raf = requestAnimationFrame(tick);
-      else {
-        setTimeout(() => setStage("split"), 300);
-        setTimeout(() => {
-          setStage("gone");
-          onDone && onDone();
-        }, 300 + 1000);
-        setTimeout(() => setMounted(false), 300 + 1400);
-      }
+      else finish();
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
@@ -40,7 +50,7 @@ function Loader({ duration = 3000, onDone, version = 0 }) {
 
   const cls = "loader" + (stage === "split" ? " split-out" : "") + (stage === "gone" ? " gone fade" : "");
   return (
-    <div className={cls}>
+    <div className={cls} onClick={() => { skipRef.current = true; }} title="クリックでスキップ">
       <div className="loader-grid"></div>
       <div className="loader-corner-tl"></div>
       <div className="loader-corner-tr"></div>
