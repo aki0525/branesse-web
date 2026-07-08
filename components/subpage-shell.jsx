@@ -4,13 +4,13 @@
 
 function SubHeader({ active }) {
   const links = [
-    { href: "/#top", label: "TOP" },
-    { href: "/works/",     label: "WORKS" },
+    { href: "/",              label: "TOP" },
+    { href: "/works/",        label: "WORKS" },
     { href: "/#capabilities", label: "SERVICE" },
-    { href: "/beyond/",    label: "BEYOND" },
-    { href: "/news/",      label: "NEWS" },
-    { href: "/about/",     label: "ABOUT" },
-    { href: "/contact/",   label: "CONTACT" },
+    { href: "/beyond/",       label: "BEYOND" },
+    { href: "/news/",         label: "NEWS" },
+    { href: "/about/",        label: "ABOUT" },
+    { href: "/contact/",      label: "CONTACT" },
   ];
   return (
     <header className="site-header subpage-header">

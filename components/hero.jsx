@@ -3,12 +3,12 @@ function SiteHeader() {
     <header className="site-header">
       <a href="#top" className="brand"><img src="/assets/logo-horizontal.png" alt="Branesse" /></a>
       <nav>
-        <a href="#works">WORKS</a>
-        <a href="#capabilities">SERVICE</a>
-        <a href="#beyond">BEYOND</a>
-        <a href="#news">NEWS</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
+        <a href="/works/">WORKS</a>
+        <a href="/#capabilities">SERVICE</a>
+        <a href="/beyond/">BEYOND</a>
+        <a href="/news/">NEWS</a>
+        <a href="/about/">ABOUT</a>
+        <a href="/contact/">CONTACT</a>
       </nav>
       <div className="header-right">
         <div className="corner mono"><LiveClock /></div>
