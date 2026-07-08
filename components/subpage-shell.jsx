@@ -4,7 +4,6 @@
 
 function SubHeader({ active }) {
   const links = [
-    { href: "/",              label: "TOP" },
     { href: "/works/",        label: "WORKS" },
     { href: "/#capabilities", label: "SERVICE" },
     { href: "/beyond/",       label: "BEYOND" },
